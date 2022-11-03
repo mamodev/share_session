@@ -1,9 +1,8 @@
 name: Deploy website to server
 
 on:
-  # push:
-  #   branches: [main]
-  workflow_dispatch:
+  push:
+    branches: [main]
 
 jobs:
   build:
@@ -22,4 +21,4 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: yarn install
       - run: yarn run build
-      - run: node app.js &
+      - run: npm start &
