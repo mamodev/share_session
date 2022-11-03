@@ -7,7 +7,6 @@ on:
 jobs:
   build:
     runs-on: node
-    continue-on-error: true
     strategy:
       matrix:
         node-version: [18.x]
@@ -29,7 +28,7 @@ jobs:
       - name: Trim build
         run: |
           rm -rf src .git .github
-          rm .gitignore tsconfig.json yarn.lock package.json
+          rm .gitignore tsconfig.json yarn.lock
 
       - name: Check PM2 status
         run: pm2 status
