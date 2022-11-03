@@ -28,9 +28,9 @@ jobs:
 
       - name: Trim build
         run: |
-        rm -rf src .git github
-        rm .gitignore tsconfig.json yarn.lock package.json 
-  
+          rm -rf src .git .github
+          rm .gitignore tsconfig.json yarn.lock package.json
+
       - name: Check PM2 status
         run: pm2 status
 
