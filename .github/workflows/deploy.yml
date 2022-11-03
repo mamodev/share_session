@@ -22,11 +22,15 @@ jobs:
 
       - name: Install node_modules
         run: yarn install
+
       - name: Transpile TS project
         run: yarn run build
-      - name: Remove previous pm2 istance if exists
-        run: if [ "$(pm2 id share-session)" != "[]" ]; then pm2 delete 0 && pm2 save --force; fi
-      - name: Start node instance with pm2
-        run: |
-          pm2 start npm --name "share-session" -- run start
-          pm2 save --force
+
+      - run: whoami
+      - run: echo "$PWD"
+      # - name: Remove previous pm2 istance if exists
+      #   run: if [ "$(pm2 id share-session)" != "[]" ]; then pm2 delete 0 && pm2 save --force; fi
+      # - name: Start node instance with pm2
+      #   run: |
+      #     pm2 start npm --name "share-session" -- run start
+      #     pm2 save --force
