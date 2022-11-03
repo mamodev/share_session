@@ -2,12 +2,13 @@ name: Deploy app to debian VPS
 
 on:
   push:
-    branches:  [ main ]
+    branches: [main]
 
 jobs:
-  build: 
+  build:
     runs-on: node
-  strategy:
+
+    strategy:
       matrix:
         node-version: [18.x]
 
