@@ -26,6 +26,11 @@ jobs:
       - name: Transpile TS project
         run: yarn run build
 
+      - name: Trim build
+        run: |
+        rm -rf src .git github
+        rm .gitignore tsconfig.json yarn.lock package.json 
+  
       - name: Check PM2 status
         run: pm2 status
 
@@ -37,7 +42,6 @@ jobs:
           rm -r ../../../../node/*
           cp -r . ../../../../node 
           cd ../../../../node
-          rm -rf src
 
       - name: Start old instance or create a new one
         run: if [ "$(pm2 id share-session)" = "[]" ]; then pm2 start npm --name "share-session" -- run start && pm2 save --force; else pm2 start "share-session"; fi
