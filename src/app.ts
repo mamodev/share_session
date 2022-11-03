@@ -3,8 +3,8 @@ import leavePage from "./actions/leavePage";
 import loadPage from "./actions/loadPage";
 import DataPool from "./classes/DataPool";
 import { SocketServer } from "./classes/Server";
-import { TokenValidator } from "classes/TokenValidator";
-
+import { TokenValidator } from "./classes/TokenValidator";
+//
 // const httpsServer = createServer({
 //   cert: readFileSync("cert/cert.pem"),
 //   key: readFileSync("cert/key.pem"),
