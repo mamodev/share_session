@@ -25,8 +25,9 @@ jobs:
       - name: Transpile TS project
         run: yarn run build
       - name: Remove previous pm2 istance if exists
-        run: echo $(pm2 id share-session)
-        run: if [ "$(pm2 id share-session)" != "[]" ]; then echo has to go && pm2 save --force; fi
+        run: |
+        echo $(pm2 id share-session)
+        if [ "$(pm2 id share-session)" != "[]" ]; then echo has to go && pm2 save --force; fi
       # - name: Start node instance with pm2
       #   run: |
       #     pm2 start npm --name "share-session" -- run start
