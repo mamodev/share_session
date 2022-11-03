@@ -29,6 +29,6 @@ server.entity("page", (id) => {
   return new DataPool<PageData>(id, { users: [] });
 });
 
-httpServer.listen(8080);
+httpServer.listen(6000);
 
 // test();
