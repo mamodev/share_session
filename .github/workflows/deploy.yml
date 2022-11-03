@@ -32,5 +32,12 @@ jobs:
       - name: Stop previus instance if active
         run: if [ "$(pm2 id share-session)" != "[]" ]; then pm2 stop "share-session" && pm2 save --force; fi
 
+      - name: Copy build files  to server folder
+        run: |
+          rm -r ../../../../node/*
+          cp -r . ../../../../node 
+          cd ../../../../node
+          rm -rf src
+
       - name: Start old instance or create a new one
         run: if [ "$(pm2 id share-session)" = "[]" ]; then pm2 start npm --name "share-session" -- run start && pm2 save --force; else pm2 start "share-session"; fi
