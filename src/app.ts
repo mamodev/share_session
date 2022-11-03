@@ -2,10 +2,8 @@ import { createServer } from "http";
 import leavePage from "./actions/leavePage";
 import loadPage from "./actions/loadPage";
 import DataPool from "./classes/DataPool";
-import { Pool } from "./classes/Pool";
 import { SocketServer } from "./classes/Server";
-import { TokenValidator } from "./classes/TokenValidator";
-import test from "./test";
+import { TokenValidator } from "classes/TokenValidator";
 
 // const httpsServer = createServer({
 //   cert: readFileSync("cert/cert.pem"),
