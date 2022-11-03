@@ -29,6 +29,7 @@ jobs:
       - run: whoami
       - run: echo "$PWD"
       - run: pm2 status
+      - run: pm2 id a
       # - name: Remove previous pm2 istance if exists
       #   run: if [ "$(pm2 id share-session)" != "[]" ]; then pm2 delete 0 && pm2 save --force; fi
       # - name: Start node instance with pm2
