@@ -20,6 +20,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: yarn install
       - run: yarn run build
-      - run: pm2 delete all
+      - run: pm2 delete "share_session"; pm2 start --name "share_session" -- run start
       - run: pm2 start --name "share_session" -- run start
       - run: pm2 save --force
