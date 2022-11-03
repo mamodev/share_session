@@ -10,7 +10,7 @@
 
 # production
 /dist
-ovh_deploy.sh
+deploy.sh
 
 # misc
 .DS_Store

@@ -9,6 +9,7 @@ const loadPage_1 = __importDefault(require("./actions/loadPage"));
 const DataPool_1 = __importDefault(require("./classes/DataPool"));
 const Server_1 = require("./classes/Server");
 const TokenValidator_1 = require("./classes/TokenValidator");
+//
 // const httpsServer = createServer({
 //   cert: readFileSync("cert/cert.pem"),
 //   key: readFileSync("cert/key.pem"),
