@@ -19,6 +19,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+
       - name: Install node_modules
         run: yarn install
       - name: Transpile TS project
@@ -26,6 +27,6 @@ jobs:
       - name: Remove previous pm2 istance if exists
         run: if [ "$(pm2 id share-session)" != "[]" ]; then pm2 delete share-session && pm2 save --force; fi
       - name: Start node instance with pm2
-      - run: |
+        run: |
           pm2 start npm --name "share-session" -- run start
           pm2 save --force
