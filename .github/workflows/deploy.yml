@@ -13,13 +13,19 @@ jobs:
         node-version: [18.x]
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Set up repo on VPS
+        uses: actions/checkout@v2
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: yarn install
-      - run: yarn run build
-      - run: pm2 delete "share_session"
-      - run: pm2 start npm --name "share_session" -- run start
-      - run: pm2 save --force
+      - name: Install node_modules
+        run: yarn install
+      - name: Transpile TS project
+        run: yarn run build
+      - name: Remove previous pm2 istance if exists
+        run: if [ "$(pm2 id share-session)" != "[]" ]; then pm2 delete share-session && pm2 save --force; fi
+      - name: Start node instance with pm2
+      - run: |
+          pm2 start npm --name "share-session" -- run start
+          pm2 save --force
